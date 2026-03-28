@@ -29,13 +29,13 @@
                     <HomeIcon class="w-5 h-5 mr-2 text-indigo-600" /> Dashboard
                 </Link>
                 <Link
-                    href="/events"
+                    href="/admin/events"
                     class="flex items-center px-3 py-2 rounded hover:bg-indigo-100 text-gray-700"
                 >
-                    <UserIcon class="w-5 h-5 mr-2 text-indigo-600" /> Event
+                    <UserIcon class="w-5 h-5 mr-2 text-indigo-600" /> Events
                 </Link>
                 <Link
-                    href="/manager/profile"
+                    href="/profile"
                     class="flex items-center px-3 py-2 rounded hover:bg-indigo-100 text-gray-700"
                 >
                     <Cog6ToothIcon class="w-5 h-5 mr-2 text-indigo-600" />
@@ -54,32 +54,7 @@
 
         <!-- Main Content -->
         <main class="flex-1 p-6">
-            <h1 class="text-2xl font-semibold mb-4 flex items-center">
-                <HomeIcon class="w-6 h-6 mr-2 text-indigo-600" /> Welcome to the
-                Manager Dashboard
-            </h1>
-            <div class="grid grid-cols-3 gap-4">
-                <div class="bg-white p-4 rounded shadow">
-                    <h2 class="text-lg font-medium flex items-center">
-                        <ChartBarIcon class="w-5 h-5 mr-2 text-indigo-600" />
-                        Analytics
-                    </h2>
-                    <p class="text-gray-600">Some content here...</p>
-                </div>
-                <div class="bg-white p-4 rounded shadow">
-                    <h2 class="text-lg font-medium flex items-center">
-                        <UsersIcon class="w-5 h-5 mr-2 text-indigo-600" /> Team
-                    </h2>
-                    <p class="text-gray-600">Some content here...</p>
-                </div>
-                <div class="bg-white p-4 rounded shadow">
-                    <h2 class="text-lg font-medium flex items-center">
-                        <Cog6ToothIcon class="w-5 h-5 mr-2 text-indigo-600" />
-                        Settings
-                    </h2>
-                    <p class="text-gray-600">Some content here...</p>
-                </div>
-            </div>
+            <slot />
         </main>
     </div>
 </template>
