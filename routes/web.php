@@ -28,7 +28,7 @@ require __DIR__.'/auth.php';
 
 Route::get('/admin', function(){
     return Inertia::render('Admin/Dashboard');
-})->middleware('role:admin')->name('admin');
+})->middleware('role:admin')->name('admin.dashboard');
 Route::get('/manager', function(){
     return Inertia::render('Manager/Dashboard');
-})->middleware('role:manager')->name('manager');
+})->middleware('role:manager')->name('manager.dashboard');

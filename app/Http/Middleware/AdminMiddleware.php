@@ -16,15 +16,27 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next, ...$roles): Response
     {
-        //user login check with role
+        // login route allow
         if ($request->routeIs('login')){
             return $next($request);
         }
+
+        //user login check
+
         if(!Auth::check()){
             return redirect()->route('login');
         }
-        if(!in_array(Auth::user()->role, $roles)){
-            abort(403, 'Unauthorizde');
+        $userRole = Auth::user()->role;
+
+        //user role dashboard
+
+        if(!in_array($userRole, $roles)){
+            // abort(403, 'Unauthorizde');
+            return match($userRole){
+                'admin' => redirect()->route('admin.dashboard'),
+                'manager' => redirect()->route('manager.dashboard'),
+                default => redirect()->route('dashboard'),
+            };
         }
         return $next($request);
     }
