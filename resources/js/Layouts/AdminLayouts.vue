@@ -35,6 +35,18 @@
                     <UserIcon class="w-5 h-5 mr-2 text-indigo-600" /> Events
                 </Link>
                 <Link
+                    href="/admin/schedule"
+                    class="flex items-center px-3 py-2 rounded hover:bg-indigo-100 text-gray-700"
+                >
+                    <UserIcon class="w-5 h-5 mr-2 text-indigo-600" /> Schedule
+                </Link>
+                <Link
+                    href="/admin/seats"
+                    class="flex items-center px-3 py-2 rounded hover:bg-indigo-100 text-gray-700"
+                >
+                    <UserIcon class="w-5 h-5 mr-2 text-indigo-600" /> Seats
+                </Link>
+                <Link
                     href="/profile"
                     class="flex items-center px-3 py-2 rounded hover:bg-indigo-100 text-gray-700"
                 >

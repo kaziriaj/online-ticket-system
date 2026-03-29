@@ -3,6 +3,8 @@
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ScheduleController;
+use App\Http\Controllers\SeatController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -35,6 +37,23 @@ Route::prefix('admin')->middleware('role:admin')->group(function(){
     Route::get('/events', [EventController::class,'index'])->name('events.index');
     Route::get('/events/create', [EventController::class,'create'])->name('events.create');
     Route::post('/events', [EventController::class,'store'])->name('events.store');
+    Route::get('/events/{event}/edit', [EventController::class,'edit'])->name('events.edit');
+    Route::put('/events/{event}', [EventController::class,'update'])->name('events.update');
+    Route::delete('/events/{event}', [EventController::class,'destroy'])->name('event.delete');
+    ///schedule
+    Route::get('/schedule', [ScheduleController::class,'index'])->name('schedules.index');
+    Route::get('/schedule/create', [ScheduleController::class,'create'])->name('schedules.create');
+    Route::post('/schedule', [ScheduleController::class,'store'])->name('schedules.store');
+    Route::get('/schedule/{schedule}/edit', [ScheduleController::class,'edit'])->name('schedules.edit');
+    Route::put('/schedule/{schedule}', [ScheduleController::class,'update'])->name('schedule.update');
+    Route::delete('/schedule/{schedule}', [ScheduleController::class,'destroy'])->name('schedules.delete');
+    ///seats
+    Route::get('/seats', [SeatController::class,'index'])->name('seats.index');
+    Route::get('/seats/create', [SeatController::class,'create'])->name('seats.create');
+    // Route::post('/seats', [SeatController::class,'store'])->name('seats.store');
+    // Route::get('/seats/{seat}/edit', [SeatController::class,'edit'])->name('seats.edit');
+    // Route::put('/seats/{seat}', [SeatController::class,'update'])->name('seats.update');
+    // Route::delete('/seats/{seat}', [SeatController::class,'destroy'])->name('seats.delete');
 
 });
 

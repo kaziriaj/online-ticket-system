@@ -44,4 +44,46 @@ class EventController extends Controller
         ->with('success', 'Event Created Successfully');
 
     }
+
+
+    public function edit(Event $event)
+    {   //$event =Event::get();
+        return Inertia::render('Events/Edit', [
+            'event' =>$event,
+        ]);
+    }
+
+    public function update(Request $request, Event $event)
+    {
+        $user = auth()->user()->id;
+        $request->validate([
+        'title' => 'required',
+        'description' => 'nullable',
+        'location' => 'required',
+        'event_price' => 'numeric|min:0',
+        'event_date' => 'date',
+        ]);
+
+        $event->update([
+        'title' => $request->title,
+        'description' => $request->description,
+        'location' => $request->location,
+        'event_price' => $request->event_price,
+        'event_date' => $request->event_date,
+        'create_by' => $user
+        ]);
+
+        return redirect()->route('events.index')
+        ->with('success', 'Event updated Successfully');
+    }
+
+    public function destroy(Event $event)
+    {
+        $event->delete();
+
+        return redirect()->route('events.index')
+        ->with('success', 'Event Deleted Successfully');
+    }
+
+
 }

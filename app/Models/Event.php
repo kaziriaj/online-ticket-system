@@ -22,4 +22,9 @@ class Event extends Model
         return $this->belongsTo(User::class, 'create_by');
     }
 
+    public function schedules()
+    {
+        return $this->hasMany(Schedule::class);
+    }
+
 }
